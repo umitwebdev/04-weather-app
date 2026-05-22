@@ -6,9 +6,12 @@ Wetter-App mit Live-Daten von OpenWeatherMap.
 
 ## Features
 - Echtzeit-Wetterdaten via OpenWeatherMap API
-- Temperatur, Wetterbeschreibung, Luftfeuchtigkeit, Windgeschwindigkeit
-- Fehlerbehandlung: leeres Feld + ungültige Stadt
-- Responsive Design mit Glassmorphism-Stil
+- Temperatur + gefühlte Temperatur (gerundet)
+- Wetter-Icon (tag/nacht-sensitiv)
+- Luftfeuchtigkeit + Windgeschwindigkeit
+- 5-Day Forecast mit Wochentag, Icon und Temperatur
+- Fehlerbehandlung: leeres Feld + Stadt nicht gefunden
+- Responsive Design (Mobile + Desktop)
 
 ## Tech-Stack
 - HTML5

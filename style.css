@@ -18,7 +18,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
   padding: 48px 40px;
-  width: 420px;
+  width: 560px;
   text-align: center;
   backdrop-filter: blur(12px);
 }
@@ -78,3 +78,41 @@ button:hover {
   min-height: 28px;
   word-break: keep-all;
 }
+
+#ergebnis img {
+    filter: brightness(2) drop-shadow(0 0 8px rgba(255,255,255,0.4));
+    width: 80px;
+}
+#forecast {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.forecast-tag {
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: white;
+    font-size: 0.85rem;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 0;
+        min-height: unset;
+        background: #1a1a2e;  /* ← kein Gradient, einfache Farbe */
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+        padding: 32px 20px;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    }
+}
+
