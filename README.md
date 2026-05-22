@@ -1,20 +1,21 @@
 # 04-weather-app
 
-Live-Wetteranzeige per Stadteingabe über die wttr.in API.
+Wetter-App mit Live-Daten von OpenWeatherMap.
 
 **Live:** [umitwebdev.github.io/04-weather-app](https://umitwebdev.github.io/04-weather-app)
 
 ## Features
-- Stadteingabe → Live-Wetterdaten
-- async/await API-Abfrage
-- Vanilla JavaScript, keine Frameworks
+- Echtzeit-Wetterdaten via OpenWeatherMap API
+- Temperatur, Wetterbeschreibung, Luftfeuchtigkeit, Windgeschwindigkeit
+- Fehlerbehandlung: leeres Feld + ungültige Stadt
+- Responsive Design mit Glassmorphism-Stil
 
 ## Tech-Stack
 - HTML5
 - CSS3
-- Vanilla JavaScript (fetch, async/await)
-- wttr.in API
+- Vanilla JavaScript (Fetch API, async/await, JSON)
 
 ## Setup
-git clone https://github.com/umitwebdev/04-weather-app.git
-cd 04-weather-app
+1. API-Key von openweathermap.org holen (kostenlos)
+2. In script.js: `const API_KEY = "dein-key"`
+3. index.html im Browser öffnen oder via Live Server starten
