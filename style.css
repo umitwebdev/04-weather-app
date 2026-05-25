@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
@@ -19,6 +23,7 @@ body {
   border-radius: 24px;
   padding: 48px 40px;
   width: 560px;
+  max-width: 100%;
   text-align: center;
   backdrop-filter: blur(12px);
 }
@@ -80,85 +85,63 @@ button:hover {
 }
 
 #ergebnis img {
-    filter: brightness(2) drop-shadow(0 0 8px rgba(255,255,255,0.4));
-    width: 80px;
+  filter: brightness(2) drop-shadow(0 0 8px rgba(255,255,255,0.4));
+  width: 80px;
 }
+
 #forecast {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .forecast-tag {
-    background: rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 10px 14px;
-    color: white;
-    font-size: 0.85rem;
-    text-align: center;
-}
-@media (max-width: 600px) {
-    body {
-        align-items: flex-start;
-        padding: 0;
-        min-height: unset;
-        background: #1a1a2e;  /* ← kein Gradient, einfache Farbe */
-    }
-
-    .container {
-        width: 100%;
-        min-height: 100vh;
-        border-radius: 0;
-        padding: 32px 20px;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-    }
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: white;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
-    html {
-        height: 100%;
-    }
+  body {
+    align-items: flex-start;
+  }
 
-    body {
-        align-items: flex-start;
-        padding: 0;
-        min-height: 100%;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-    }
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 32px 20px;
+    background: transparent;
+  }
 
-    .container {
-        width: 100%;
-        min-height: 100vh;
-        border-radius: 0;
-        padding: 32px 20px;
-        background: transparent;
-    }
+  h1 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
 
-    h1 {
-        font-size: 1.4rem;
-        letter-spacing: 2px;
-        margin-bottom: 24px;
-    }
+  input, button {
+    font-size: 1rem;
+    padding: 14px 18px;
+  }
 
-    input, button {
-        font-size: 1rem;
-        padding: 14px 18px;
-    }
+  #ergebnis {
+    font-size: 1rem;
+    line-height: 2;
+  }
 
-    #ergebnis {
-        font-size: 1rem;
-        line-height: 2;
-    }
+  #ergebnis img {
+    width: 100px;
+  }
 
-    #ergebnis img {
-        width: 100px;
-    }
-
-    .forecast-tag {
-        font-size: 0.9rem;
-        padding: 12px 16px;
-        min-width: 80px;
-    }
+  .forecast-tag {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+    min-width: 80px;
+  }
 }
