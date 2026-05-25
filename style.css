@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+html {
+  background: #0f3460;
+  min-height: 100%;
 }
 
 body {
@@ -14,7 +15,8 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 40px 0;
 }
 
 .container {
@@ -75,6 +77,23 @@ button:hover {
   opacity: 0.85;
 }
 
+#standort-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+  padding: 10px;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition: border 0.2s, color 0.2s;
+}
+
+#standort-btn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  opacity: 1;
+}
+
 #ergebnis {
   margin-top: 28px;
   color: rgba(255, 255, 255, 0.75);
@@ -85,8 +104,33 @@ button:hover {
 }
 
 #ergebnis img {
-  filter: brightness(2) drop-shadow(0 0 8px rgba(255,255,255,0.4));
+  filter: brightness(2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
   width: 80px;
+}
+
+#fakten {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  text-align: left;
+  display: none;
+}
+
+#fakten.aktiv {
+  display: block;
+}
+
+#fakten .fakten-titel {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 #forecast {
@@ -98,17 +142,120 @@ button:hover {
 }
 
 .forecast-tag {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 10px 14px;
   color: white;
   font-size: 0.85rem;
   text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.forecast-tag:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.forecast-tag.aktiv {
+  background: rgba(102, 126, 234, 0.35);
+  border: 1px solid rgba(102, 126, 234, 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+#chart-container {
+  margin-top: 24px;
+  display: none;
+}
+
+#chart-container.aktiv {
+  display: block;
+}
+
+#regen-chart {
+  margin-top: 16px;
+}
+
+#vorschlaege {
+  position: relative;
+  width: 100%;
+}
+
+.vorschlag-liste {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #1e2a45;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.vorschlag-item {
+  padding: 10px 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.vorschlag-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.schwebende-stadt {
+  position: absolute;
+  color: white;
+  font-family: 'Noto Color Emoji', 'Segoe UI', Arial, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  pointer-events: all;
+  animation-fill-mode: forwards;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.schwebende-stadt:hover {
+  color: #667eea;
+  transform: scale(1.2);
+}
+
+@keyframes schwebeHoch {
+    0%   { transform: translateY(0) translateX(0); opacity: 0; }
+    10%  { opacity: 1; }
+    33%  { transform: translateY(calc(-0.33 * var(--start-y, 70vh))) translateX(10px); }
+    66%  { transform: translateY(calc(-0.66 * var(--start-y, 70vh))) translateX(-10px); }
+    90%  { opacity: 1; }
+    100% { transform: translateY(calc(-1 * var(--start-y, 70vh))) translateX(0); opacity: 0; }
+}
+
+@keyframes schwebeTief {
+    0%   { transform: translateY(0) translateX(0); opacity: 0; }
+    10%  { opacity: 1; }
+    33%  { transform: translateY(calc(0.33 * var(--start-y, 70vh))) translateX(-10px); }
+    66%  { transform: translateY(calc(0.66 * var(--start-y, 70vh))) translateX(10px); }
+    90%  { opacity: 1; }
+    100% { transform: translateY(calc(1 * var(--start-y, 70vh))) translateX(0); opacity: 0; }
 }
 
 @media (max-width: 768px) {
   body {
     align-items: flex-start;
+    padding: 0;
   }
 
   .container {
